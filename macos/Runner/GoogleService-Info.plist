@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>570905742340-mem8i3r8nv5i8p94i5ial3a2gn1gv12p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.570905742340-mem8i3r8nv5i8p94i5ial3a2gn1gv12p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDPRLFdWWkQZH91WTVer7SbFhuWbCJ9aAM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>570905742340</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flipkartclone</string>
+	<key>PROJECT_ID</key>
+	<string>flipkartclone-de681</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flipkartclone-de681.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:570905742340:ios:99497be23b5e967047f951</string>
+</dict>
+</plist>
