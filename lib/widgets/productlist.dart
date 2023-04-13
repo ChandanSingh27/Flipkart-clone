@@ -2,6 +2,7 @@ import 'package:flipkartclone/const_value/colors.dart';
 import 'package:flipkartclone/models/productmodel.dart';
 import 'package:flipkartclone/pages/bookingpage.dart';
 import 'package:flipkartclone/pages/searchpage.dart';
+import 'package:flipkartclone/responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../const_value/textstyle.dart';
@@ -30,41 +31,80 @@ class _ItemsBannerWithListState extends State<ItemsBannerWithList> {
       child: Card(
         margin: const EdgeInsets.only(top: 10, bottom: 20, left: 5, right: 5),
         elevation: 10,
-        child: Row(
-          children: [
-            bannerCardWidgets(context, widget.bannerImageUrl,
-                widget.bannerCardDetails, "View All"),
-            Expanded(
-                child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: widget.models.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              BookingPage(product: widget.models[index]),
-                        ));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
-                    child: SizedBox(
-                      width: 200,
-                      child: bannerItemWidgets(
-                          context,
-                          widget.models[index].itemImageUrl,
-                          widget.models[index].itemName,
-                          widget.models[index].itemPrice.toString(),
-                          widget.models[index].itemCompanyName),
-                    ),
+        child: Responsive.isMoblie(context)
+            ? Row(
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: bannerCardWidgets(context, widget.bannerImageUrl,
+                        widget.bannerCardDetails, "View All"),
                   ),
-                );
-              },
-            ))
-          ],
-        ),
+                  Expanded(
+                      child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: widget.models.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    BookingPage(product: widget.models[index]),
+                              ));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: SizedBox(
+                            width: 200,
+                            child: bannerItemWidgets(
+                                context,
+                                widget.models[index].itemImageUrl,
+                                widget.models[index].itemName,
+                                widget.models[index].itemPrice.toString(),
+                                widget.models[index].itemCompanyName),
+                          ),
+                        ),
+                      );
+                    },
+                  ))
+                ],
+              )
+            : Row(
+                children: [
+                  bannerCardWidgets(context, widget.bannerImageUrl,
+                      widget.bannerCardDetails, "View All"),
+                  Expanded(
+                      child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: widget.models.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    BookingPage(product: widget.models[index]),
+                              ));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: SizedBox(
+                            width: 200,
+                            child: bannerItemWidgets(
+                                context,
+                                widget.models[index].itemImageUrl,
+                                widget.models[index].itemName,
+                                widget.models[index].itemPrice.toString(),
+                                widget.models[index].itemCompanyName),
+                          ),
+                        ),
+                      );
+                    },
+                  ))
+                ],
+              ),
       ),
     );
   }
@@ -82,11 +122,11 @@ Stack bannerCardWidgets(BuildContext context, String imageurl,
         imageurl,
         height: double.infinity,
         fit: BoxFit.cover,
-        width: 300,
+        width: Responsive.isMoblie(context) ? 220 : 300,
       ),
       Container(
         color: Colors.black.withOpacity(0.2),
-        width: 300,
+        width: Responsive.isMoblie(context) ? 220 : 300,
         height: double.infinity,
       ),
       Column(

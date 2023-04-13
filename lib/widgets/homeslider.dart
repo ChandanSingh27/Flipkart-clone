@@ -25,16 +25,16 @@ Widget slider(BuildContext context, PageController controller) {
           }
         },
       ),
-      Positioned(
-        top: MediaQuery.of(context).size.height * 0.13,
-        left: 10,
-        child: InkWell(child: arrowButton(Icons.arrow_back_ios)),
-      ),
-      Positioned(
-        top: MediaQuery.of(context).size.height * 0.13,
-        right: 10,
-        child: arrowButton(Icons.arrow_forward_ios),
-      )
+      // Positioned(
+      //   top: MediaQuery.of(context).size.height * 0.13,
+      //   left: 10,
+      //   child: InkWell(child: arrowButton(Icons.arrow_back_ios)),
+      // ),
+      // Positioned(
+      //   top: MediaQuery.of(context).size.height * 0.13,
+      //   right: 10,
+      //   child: arrowButton(Icons.arrow_forward_ios),
+      // )
     ],
   );
 }

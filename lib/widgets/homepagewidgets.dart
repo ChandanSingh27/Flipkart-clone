@@ -85,16 +85,10 @@ Widget customAppBar(BuildContext context) {
 
 Row mobileTabApp(BuildContext context) {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
       Row(
         children: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.white,
-              )),
           InkWell(
             onTap: () => Navigator.push(
                 context,
@@ -114,9 +108,27 @@ Row mobileTabApp(BuildContext context) {
           searchBar(context),
         ],
       ),
-      const SizedBox(
-        width: 2,
-      )
+      Badge(
+        alignment: AlignmentDirectional.topEnd,
+        isLabelVisible: true,
+        label: Text(Provider.of<SearchPageProvider>(context, listen: false)
+            .productsCard
+            .length
+            .toString()),
+        child: IconButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CartPage(),
+                ));
+          },
+          icon: const Icon(
+            CupertinoIcons.cart,
+            color: Colors.white,
+          ),
+        ),
+      ),
     ],
   );
 }
