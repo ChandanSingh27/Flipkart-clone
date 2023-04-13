@@ -1,5 +1,6 @@
 import 'package:flipkartclone/const_value/colors.dart';
 import 'package:flipkartclone/pages/footersection.dart';
+import 'package:flipkartclone/responsive.dart';
 import 'package:flipkartclone/widgets/filtersbox.dart';
 import 'package:flipkartclone/widgets/homepagewidgets.dart';
 import 'package:flipkartclone/widgets/searchproductlist.dart';
@@ -51,13 +52,14 @@ class _SearchPageState extends State<SearchPage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    width: MediaQuery.of(context).size.width * 0.20,
-                    color: Colors.white,
-                    height: 250,
-                    child: const FilterBox(),
-                  ),
+                  if (!Responsive.isMoblie(context))
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      width: MediaQuery.of(context).size.width * 0.20,
+                      color: Colors.white,
+                      height: 250,
+                      child: const FilterBox(),
+                    ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.01,
                   ),
@@ -71,6 +73,20 @@ class _SearchPageState extends State<SearchPage> {
           ],
         ),
       ),
+      floatingActionButton: Responsive.isMoblie(context)
+          ? FloatingActionButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return const AlertDialog(
+                      content: FilterBox(),
+                    );
+                  },
+                );
+              },
+              child: const Icon(Icons.filter_list))
+          : null,
     );
   }
 }

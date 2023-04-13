@@ -15,79 +15,85 @@ Widget footer(BuildContext context) {
     width: double.infinity,
     height: 300,
     color: footerColor,
-    child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                aboutSection(),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.03,
-                ),
-                helpSection(),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.03,
-                ),
-                consumerPolicySection(),
-                if (!Responsive.isMoblie(context))
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.03,
-                  ),
-                if (!Responsive.isMoblie(context)) socialSection()
-              ],
+    child: SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 20,
             ),
-            if (!Responsive.isMoblie(context))
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 100,
-                    child: VerticalDivider(
-                      color: Colors.white,
-                      width: 0.1,
+                  aboutSection(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.03,
+                  ),
+                  helpSection(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.03,
+                  ),
+                  consumerPolicySection(),
+                  if (!Responsive.isMoblie(context))
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.03,
                     ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.02,
-                  ),
-                  mailSection(),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.04,
-                  ),
-                  registeredOfficeSection()
+                  if (!Responsive.isMoblie(context)) socialSection()
                 ],
               ),
+              if (!Responsive.isMoblie(context))
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 100,
+                      child: VerticalDivider(
+                        color: Colors.white,
+                        width: 0.1,
+                      ),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.02,
+                    ),
+                    mailSection(),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.04,
+                    ),
+                    registeredOfficeSection()
+                  ],
+                ),
+            ]),
+            const SizedBox(
+              height: 30,
+            ),
+            const Divider(
+              color: Colors.white,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  footerIconText(Icons.badge_sharp, "Become a Seller"),
+                  footerIconText(Icons.star_border_rounded, "Avertise"),
+                  footerIconText(Icons.card_giftcard, "Gift Cards"),
+                  footerIconText(Icons.help_center, "Help Center"),
+                  if (!Responsive.isMoblie(context))
+                    footerIconText(Icons.copyright, "2007-2023 Flipkart.com"),
+                  if (!Responsive.isMoblie(context))
+                    Image.asset(
+                      "assets/images/footerlogo.jpg",
+                      width: 300,
+                      height: 70,
+                    )
+                ],
+              ),
+            )
           ]),
-          const SizedBox(
-            height: 30,
-          ),
-          const Divider(
-            color: Colors.white,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              footerIconText(Icons.badge_sharp, "Become a Seller"),
-              footerIconText(Icons.star_border_rounded, "Avertise"),
-              footerIconText(Icons.card_giftcard, "Gift Cards"),
-              footerIconText(Icons.help_center, "Help Center"),
-              if (!Responsive.isMoblie(context))
-                footerIconText(Icons.copyright, "2007-2023 Flipkart.com"),
-              if (!Responsive.isMoblie(context))
-                Image.asset(
-                  "assets/images/footerlogo.jpg",
-                  width: 300,
-                  height: 70,
-                )
-            ],
-          )
-        ]),
+    ),
   );
 }
 

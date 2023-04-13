@@ -122,11 +122,11 @@ Stack bannerCardWidgets(BuildContext context, String imageurl,
         imageurl,
         height: double.infinity,
         fit: BoxFit.cover,
-        width: Responsive.isMoblie(context) ? 220 : 300,
+        width: Responsive.isMoblie(context) ? 200 : 300,
       ),
       Container(
         color: Colors.black.withOpacity(0.2),
-        width: Responsive.isMoblie(context) ? 220 : 300,
+        width: Responsive.isMoblie(context) ? 200 : 300,
         height: double.infinity,
       ),
       Column(
