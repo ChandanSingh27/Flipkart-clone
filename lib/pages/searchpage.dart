@@ -64,7 +64,7 @@ class _SearchPageState extends State<SearchPage> {
                     width: MediaQuery.of(context).size.width * 0.01,
                   ),
                   const Flexible(
-                    child: SearchProductLists(),
+                    child: SingleChildScrollView(child: SearchProductLists()),
                   ),
                 ],
               ),
